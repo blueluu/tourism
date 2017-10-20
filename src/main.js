@@ -6,6 +6,16 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+var host = process.env.API_HOST || 'ewatch.okayapps.com';
+
+const ajax = function(){
+	this.http = axios.create({
+		baseUrl: 'https://' + host + '/ecoapi',
+		timeout: 10000,
+
+	})
+}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
