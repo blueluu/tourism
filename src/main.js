@@ -16,8 +16,32 @@ var host = process.env.API_HOST || 'ewatch.okayapps.com';
 const ajax = function(){
 	this.http = axios.create({
 		baseUrl: 'https://' + host + '/ecoapi',
-		timeout: 10000
-	})
+		timeout: 10000,
+		headers: {'Content-Type': 'text/plain'}
+	});
+	this.post = function (url, data, config) {
+    var ennPromise = {};
+    ennPromise.promise = this.http.post(url, data, config);
+    ennPromise.loadingInstance = this.loadingInstance;
+
+    ennPromise.then = function (successFunction) {
+      this.promise = this.promise.then(function (resp) {
+        if (resp) {
+          successFunction(resp);
+        }
+
+      }.bind(this));
+      return this;
+    };
+    ennPromise.catch = function (errFunction) {
+      this.promise = this.promise.catch(function (err) {
+
+        errFunction(err);
+      }.bind(this));
+      return this;
+    };
+    return ennPromise;
+  };
 }
 Vue.prototype.$ajax = new ajax;
 /* eslint-disable no-new */
