@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import store from './store'
+import 'element-ui/lib/theme-default/index.css'
 
 import elementUI from 'element-ui'
 
@@ -48,6 +50,7 @@ Vue.prototype.$ajax = new ajax;
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

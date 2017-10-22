@@ -1,5 +1,9 @@
 <template>
-  <div>{{homeData}}</div>
+  <div>
+    <router-link to="/elementDemo">{{towhere}}</router-link>
+    <h5>尝试连接接口</h5>
+  	<div>{{homeData}}</div>
+  </div>
 </template>
 <script>
   import API from '../../apiMapping/api.js';
@@ -7,7 +11,8 @@
     name:'home',
     data() {
       return {
-      	homeData:[]
+      	homeData:[],
+      	towhere:'组件'
       }
     },
     created(){
@@ -15,14 +20,14 @@
     },
     methods:{
       getContent(){
-      	let url = API.index;
-        let host = process.env.API_HOST || 'ewatch.okayapps.com';
-        let baseUrl = 'https://' + host + '/ecoapi';
-        url = baseUrl + url;
-      	this.$ajax.post(url,{},function(data){
-      		console.log(data);
-      		this.homeData = data;
-      	})
+      	let self = this;
+      	let url = this.$store.state.baseUrl + API.index;
+      	this.$ajax.post(url,{}).then(function(returnData){
+      		returnData = eval(returnData)
+      		if(returnData.status == 200){
+      			self.homeData = returnData.data;
+      		}
+      	});
       }
     }
   }
