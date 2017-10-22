@@ -3,6 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
+
+import elementUI from 'element-ui'
+
+Vue.use(elementUI);
 
 Vue.config.productionTip = false
 
@@ -11,11 +16,10 @@ var host = process.env.API_HOST || 'ewatch.okayapps.com';
 const ajax = function(){
 	this.http = axios.create({
 		baseUrl: 'https://' + host + '/ecoapi',
-		timeout: 10000,
-
+		timeout: 10000
 	})
 }
-
+Vue.prototype.$ajax = new ajax;
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -19,7 +19,7 @@ export default{
 	/*发表评论接口*/
 	addComment : '/api/cms/comment/addComment',
 	/*点赞接口*/
-	upvotes : '/api/cms/comment/upvotes'
+	upvotes : '/api/cms/comment/upvotes',
 	/*文化单位*/
     cultureDetail : '/api/cms/article/cultureDetail',
 	/*走进生态城*/
