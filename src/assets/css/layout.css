@@ -1,4 +1,12 @@
+*{
+  padding:0;
+  margin:0;
+}
 .router-link-active{
     text-decoration: none;
     color:red;
-  }
+}
+a{
+  text-decoration: none;
+  color:#48576a;
+}

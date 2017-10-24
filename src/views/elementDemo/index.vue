@@ -1,40 +1,40 @@
 <template>
-	<div>
-		<h4>开始写组建</h4>
-		<h5>Layout 布局</h5>
-	<el-row>
-	  <el-col :span="24"><div class="grid-content bg-purple-dark">就离开家了</div></el-col>
-	</el-row>
-	<el-row>
-	  <el-col :span="12"><div class="grid-content bg-purple">有一回合</div></el-col>
-	  <el-col :span="12"><div class="grid-content bg-purple-light">婆婆看哦</div></el-col>
-	</el-row>
-	<el-row>
-	  <el-col :span="8"><div class="grid-content bg-purple">回复价格</div></el-col>
-	  <el-col :span="8"><div class="grid-content bg-purple-light">固元膏不加班机会</div></el-col>
-	  <el-col :span="8"><div class="grid-content bg-purple">亏欧哦</div></el-col>
-	</el-row>
-	<el-row>
-	  <el-col :span="6"><div class="grid-content bg-purple">就会看看和吧</div></el-col>
-	  <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
-	  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-	  <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
-	</el-row>
-	<el-row>
-	  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
-	  <el-col :span="4"><div class="grid-content bg-purple-light"></div></el-col>
-	  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
-	  <el-col :span="4"><div class="grid-content bg-purple-light"></div></el-col>
-	  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
-	  <el-col :span="4"><div class="grid-content bg-purple-light"></div></el-col>
-	</el-row>
-
+	<div id="indexDemo">
+		<h4>html5 拖放功能</h4>
+    <div>
+      <p>可以尝试将图片拖拽到方框里</p>
+      <div class="box1"></div>
+      <img id="drag1" src="../../assets/eg_dragdrop_w3school.gif" alt="just a picture" draggable="true">
+    </div>
 	</div>
 </template>
 <script>
-	
+	export default{
+    name:'drag',
+    data(){
+      return{}
+    },
+    created:{
+
+    },
+    methods:{
+      drag(ev){
+        console.log(ev);
+        ev.dataTransfer.setData("Text",ev.target.id);
+      }
+    }
+  }
 </script>
 <style>
+  .box1{
+    width:200px;
+    height:100px;
+    border:1px solid black;
+    margin:20px 0;
+  }
+	#indexDemo{
+		margin-left:250px;
+	}
 	.el-row {
 		font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Microsoft YaHei",Arial,sans-serif;
     margin-bottom: 20px;
