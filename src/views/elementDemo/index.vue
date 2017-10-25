@@ -3,8 +3,8 @@
 		<h4>html5 拖放功能</h4>
     <div>
       <p>可以尝试将图片拖拽到方框里</p>
-      <div class="box1" @ondrop="drop(event)" @ondragover="allowDrop(event)"></div>
-      <img id="drag1" src="../../assets/eg_dragdrop_w3school.gif" alt="just a picture" draggable="true" @ondragstart="drag(event)">
+      <div class="box1"></div>
+      <img id="drag1" src="../../assets/eg_dragdrop_w3school.gif" alt="just a picture" draggable="true">
     </div>
 	</div>
 </template>
@@ -18,19 +18,19 @@
 
     },
     methods:{
+      allowDrop(ev){
+        console.log(1);
+        ev.preventDefault();
+      },
       drag(ev){
-        console.log('drag');
+        console.log(2);
         ev.dataTransfer.setData("Text",ev.target.id);
       },
       drop(ev){
-        console.log('drop');
+        console.log(3);
         ev.preventDefault();
-        var data = ev.dataTransfer.getData("Text");
+        var data=ev.dataTransfer.getData("Text");
         ev.target.appendChild(document.getElementById(data));
-      },
-      allowDrop(ev){
-        console.log('allowDrop')
-        ev.preventDefault();
       }
     }
   }

@@ -8,8 +8,10 @@
       <el-submenu index="1" class="html5style">
         <template slot="title"><i class="el-icon-message"></i>html5 学习之旅</template>
         <el-menu-item-group>
-          <el-menu-item index="1-1"><router-link to="/elementDemo">拖放</router-link></el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
+          <el-menu-item index="1"><router-link to="/elementDemo">拖放</router-link></el-menu-item>
+          <el-menu-item index="2"><router-link to="/GeolocationDemo">地理定位</router-link></el-menu-item>
+          <el-menu-item index="3"><router-link to="/Webworker">web worker</router-link></el-menu-item>
+          <el-menu-item index="4">选项2</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-menu-item index="2"><i class="el-icon-menu"></i>导航二</el-menu-item>
